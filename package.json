@@ -1,7 +1,7 @@
 {
   "name": "cli365",
   "description": "A cli used to manage the rede365 projects",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Reginaldo Junior @BRKsReginaldo",
   "bin": {
     "cli365": "./bin/run"
