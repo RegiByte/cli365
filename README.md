@@ -187,9 +187,9 @@ the only argument that is required for the projects definition is the project pa
 one of the projects item
 
 **examples**
-```json
+```text
 {
-  "projects": {
+  "projects": [
     "auth-service", // Here the project name and path will be the same, scripts (start/stop/custom) will use the defaults
     {
        "name": "auth", // Custom name, optional, will use path basename if not defined
@@ -206,6 +206,31 @@ one of the projects item
         "pull": "git pull origin develop" // custom pull script, will override defaults.scripts.pull definition if defined
       }
     }
-  }
+  ]
 }
 ```
+
+## Groups
+
+Groups is an array of objects that defines the project groups to allow easy start/stop and execution of custom scripts
+in pre-defined groups like frontend, backend, databases...
+
+**example**
+```
+{
+  "groups": [
+    {
+      "name": "full-stack",
+      "projects": "*" // the * wildcard is used to indicate the cli that this group will have all defined projects
+    },
+    {
+        "name": "frontend",
+        "projects": ["frontend-1", "frontend-1"] // all the project names defined in the projects.* section
+    }   
+  ]
+}
+```
+
+An important thing to be aware of is that inside `groups.*.projects` you should put the project name defined in 
+`projects.*.name`, if you haven't defined a custom name for the project, the path basename will be used as project name 
+so this is the one you should use here.
