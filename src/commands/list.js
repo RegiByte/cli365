@@ -11,6 +11,8 @@ class ListCommand extends ProjectsCommand {
       })
     }
 
+    this.log(projects)
+
     this.log('* Projects =============================================================')
     cli.table(projects, {
       name: {

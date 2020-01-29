@@ -8,11 +8,13 @@ module.exports = class Project {
     path,
     start,
     stop,
+    scripts = {},
   }) {
     this.name = name
     this.path = path
     this.start = start
     this.stop = stop
+    this.scripts = scripts
 
     this.setPath = this.setPath.bind(this)
   }
@@ -26,12 +28,14 @@ module.exports = class Project {
     defaults = {},
   }) {
     const name = path.basename(configPath)
+    const {scripts = {}} = defaults
 
     return new Project({
       name,
       path: configPath,
       start: defaults.start,
       stop: defaults.stop,
+      scripts,
     })
   }
 
@@ -40,7 +44,7 @@ module.exports = class Project {
     index = 0,
     defaults = {},
   }) {
-    const {name: basename, path: basepath} = config
+    const {name: basename, path: basepath, scripts: projectScripts = {}} = config
 
     if (!basepath) {
       throw new Error(`Invalid project config at index ${index}`)
@@ -48,11 +52,17 @@ module.exports = class Project {
 
     let name = basename || path.basename(basepath)
 
+    const {scripts = {}} = defaults
+
     return new Project({
       name,
       path: basepath,
       start: config.start || defaults.start,
       stop: config.stop || defaults.stop,
+      scripts: {
+        ...scripts,
+        ...projectScripts,
+      },
     })
   }
 
@@ -88,9 +98,17 @@ module.exports = class Project {
 
   async exec(command) {
     if (!this[command]) {
-      throw new Error(`command not defined ${command}`)
+      return
     }
 
     return exec(`cd ${this.path} && ${this[command]}`)
+  }
+
+  async run(script) {
+    if (!this.scripts[script]) {
+      return
+    }
+
+    return exec(`cd ${this.path} && ${this.scripts[script]}`)
   }
 }
