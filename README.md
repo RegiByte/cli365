@@ -20,7 +20,7 @@ $ npm install -g cli365
 $ cli365 COMMAND
 running command...
 $ cli365 (-v|--version|version)
-cli365/1.1.0 linux-x64 node-v13.3.0
+cli365/1.1.1 linux-x64 node-v13.3.0
 $ cli365 --help [COMMAND]
 USAGE
   $ cli365 COMMAND
@@ -69,7 +69,7 @@ DESCRIPTION
   Extra documentation goes here
 ```
 
-_See code: [src/commands/list.js](https://github.com/BRKsReginaldo/cli365/blob/v1.1.0/src/commands/list.js)_
+_See code: [src/commands/list.js](https://github.com/BRKsReginaldo/cli365/blob/v1.1.1/src/commands/list.js)_
 
 ## `cli365 list:groups`
 
@@ -87,7 +87,7 @@ DESCRIPTION
   Extra documentation goes here
 ```
 
-_See code: [src/commands/list/groups.js](https://github.com/BRKsReginaldo/cli365/blob/v1.1.0/src/commands/list/groups.js)_
+_See code: [src/commands/list/groups.js](https://github.com/BRKsReginaldo/cli365/blob/v1.1.1/src/commands/list/groups.js)_
 
 ## `cli365 run`
 
@@ -107,7 +107,7 @@ DESCRIPTION
   If a group is passed, only the group projects will get the script ran
 ```
 
-_See code: [src/commands/run.js](https://github.com/BRKsReginaldo/cli365/blob/v1.1.0/src/commands/run.js)_
+_See code: [src/commands/run.js](https://github.com/BRKsReginaldo/cli365/blob/v1.1.1/src/commands/run.js)_
 
 ## `cli365 start`
 
@@ -126,7 +126,7 @@ DESCRIPTION
   If a group is passed, only the group projects will be started
 ```
 
-_See code: [src/commands/start.js](https://github.com/BRKsReginaldo/cli365/blob/v1.1.0/src/commands/start.js)_
+_See code: [src/commands/start.js](https://github.com/BRKsReginaldo/cli365/blob/v1.1.1/src/commands/start.js)_
 
 ## `cli365 stop`
 
@@ -145,7 +145,7 @@ DESCRIPTION
   If a group is passed, only the group projects will be stopped
 ```
 
-_See code: [src/commands/stop.js](https://github.com/BRKsReginaldo/cli365/blob/v1.1.0/src/commands/stop.js)_
+_See code: [src/commands/stop.js](https://github.com/BRKsReginaldo/cli365/blob/v1.1.1/src/commands/stop.js)_
 <!-- commandsstop -->
 
 # Config
